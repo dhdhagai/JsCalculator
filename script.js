@@ -61,11 +61,15 @@ zero.addEventListener("click", function () {
 });
 
 equal.addEventListener("click", function () {
-  input_val = eval(input_val);
+  if (eval(input_val) == undefined) {
+    input_val = 0
+  }
+  input_val = eval(input_val)
   input.innerHTML = input_val;
 });
 
 add.addEventListener("click", function () {
+  input_val = input.innerHTML
   if (
     input_val.slice(input_val.length - 1, input_val.length) == "-" ||
     input_val.slice(input_val.length - 1, input_val.length) == "*" ||
@@ -81,6 +85,7 @@ add.addEventListener("click", function () {
   input.innerHTML = input_val;
 });
 sub.addEventListener("click", function () {
+  input_val = input.innerHTML
   if (
     input_val.slice(input_val.length - 1, input_val.length) == "+" ||
     input_val.slice(input_val.length - 1, input_val.length) == "*" ||
@@ -96,6 +101,7 @@ sub.addEventListener("click", function () {
   input.innerHTML = input_val;
 });
 mult.addEventListener("click", function () {
+  input_val = input.innerHTML
   if (
     input_val.slice(input_val.length - 1, input_val.length) == "-" ||
     input_val.slice(input_val.length - 1, input_val.length) == "+" ||
@@ -111,6 +117,7 @@ mult.addEventListener("click", function () {
   input.innerHTML = input_val;
 });
 divi.addEventListener("click", function () {
+  input_val = input.innerHTML
   if (
     input_val.slice(input_val.length - 1, input_val.length) == "-" ||
     input_val.slice(input_val.length - 1, input_val.length) == "*" ||
@@ -127,6 +134,9 @@ divi.addEventListener("click", function () {
 });
 del.addEventListener("click", function () {
   input_val = input.innerHTML;
-  input_val = input_val.slice(0, input_val.length - 1);
-  input.innerHTML = input_val;
+  if (input_val == 0) {
+    
+  } else{input_val = input_val.slice(0, input_val.length - 1);
+    input.innerHTML = input_val;}
+  
 });
